@@ -1,0 +1,26 @@
+import random
+import time
+
+
+def sort(l):
+    ver = True
+    len_ = len(l)
+    while ver:
+        ver = False
+        for i in range (len(l)-1):
+            if l[i] > l[i+1]:
+                a = l[i]
+                l[i] = l[i+1]
+                l[i+1] = a
+                ver = True
+    return l
+
+
+size = int(input("Elemte der Liste: "))
+l = [random.randint(-100, 100) for i in range(size)]
+print(f"Unsortiert: {l}")
+t1 = time.time()
+sort(l)
+t2 = time.time()
+print(f"Sortiert: {l}")
+print(f"Sortierzeit: {t2-t1}")

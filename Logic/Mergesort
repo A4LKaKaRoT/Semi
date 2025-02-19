@@ -1,0 +1,38 @@
+import random
+import time
+
+
+def listen_erstellen (a):
+    dct = {}
+    for i in range (len(a)):
+        dct[f"Liste{i}"] = [a[i]]
+    return dct
+
+def sort (a):
+    a = listen_erstellen (a)
+    b = []
+    for halve in range (len(a) // 2):
+        i = a[halve]
+        j = a[len(a) - halve]
+        combination = []
+        for element in range (len(i) + len(j)):
+            if len(i) == 0:
+                combination = combination + j[0]
+            elif len(j) == 0:
+                combination = combination + i[0]
+            elif i[0] > j[0]:
+                combination = combination + i[0]
+            else:
+                combination = combination + i[0]
+        b = b + [combination]
+    return b
+
+
+size = int(input("Elemte der Liste: "))
+l = [random.randint(-100, 100) for i in range(size)]
+print(f"Unsortiert: {l}")
+f = listen_erstellen(l)
+print(f)
+print("Liste0")
+#_ = sort(l)
+#print(_)
